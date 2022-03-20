@@ -8,12 +8,12 @@ const fs = require('fs');
 const compareVersions = require('compare-versions');
 const del = require('del');
 
-const OpenBlockLink = require('openblock-link');
-const OpenblockResourceServer = require('openblock-resource');
+const OpenBlockLink = require('haniblock-link');
+const OpenblockResourceServer = require('haniblock-resource');
 const ProgressBar = require('electron-progressbar');
 
 const formatMessage = require('format-message');
-const locales = require('openblock-l10n/locales/link-desktop-msgs');
+const locales = require('haniblock-l10n/locales/link-desktop-msgs');
 const osLocale = require('os-locale');
 
 const {productName, version} = require('../package.json');
