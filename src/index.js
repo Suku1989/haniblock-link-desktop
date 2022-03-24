@@ -171,7 +171,7 @@ const checkUpdate = (alertLatest = true) => {
             }
         })
         .catch(err => {
-            showOperationFailedMessageBox(err);
+            showOperationFailedMessageBox(err.message);
         });
 };
 
@@ -365,11 +365,12 @@ const createWindow = () => {
 
     // start resource server
     resourceServer = new OpenblockResourceServer(dataPath, path.join(resourcePath, 'external-resources'));
+    resourceServer.initializeResources();
     resourceServer.listen();
 
 
     appTray = new Tray(nativeImage.createFromPath(path.join(__dirname, './icon/OpenBlock-Link.ico')));
-    appTray.setToolTip('Openblock Link');
+    appTray.setToolTip('HaniBlock Link');
     appTray.setContextMenu(Menu.buildFromTemplate(makeTrayMenu(locale)));
 
     appTray.on('click', () => {
@@ -398,7 +399,7 @@ if (gotTheLock) {
     });
     app.on('ready', () => {
         createWindow();
-        checkUpdate(false);
+        //checkUpdate(false);
     });
 } else {
     app.quit();
